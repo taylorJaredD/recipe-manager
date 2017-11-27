@@ -8,3 +8,12 @@
 
 Ingredrient.destroy_all
 Recipe.destory_all
+
+recipes = Recipe.create([
+  {title: ""},
+  {title: ""}
+  ])
+
+ingredients = Ingredient.create([
+  
+  ])
