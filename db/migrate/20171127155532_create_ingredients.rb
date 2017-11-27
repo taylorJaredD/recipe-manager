@@ -5,7 +5,7 @@ class CreateIngredients < ActiveRecord::Migration[5.1]
       t.string :measurement
       t.string :item
 
-      t.references :recipe, foreign_key: true
+      t.references :recipe, index: true, foreign_key: true
     end
   end
 end

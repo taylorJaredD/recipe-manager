@@ -1,0 +1,14 @@
+<h2>Add new ingredients to the list</h2>
+
+<%= form_for [@recipe, @ingredient] do |f| %>
+  <%= f.label :amount %>
+  <%= f.text_field :amount %>
+
+  <%= f.label :measurement %>
+  <%= f.text_field :measurement %>
+
+  <%= f.label :item %>
+  <%= f.text_field :item %>
+
+  <%= f.submit %>
+<% end %>
