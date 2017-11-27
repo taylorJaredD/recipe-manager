@@ -1,0 +1,18 @@
+<h2>Change the ingredients</h2>
+
+<%= form_for [@recipe, @ingredient] do |f| %>
+  <%= f.label :amount %>
+  <%= f.text_field :amount %>
+
+  <%= f.label :measurement %>
+  <%= f.text_field :measurement %>
+
+  <%= f.label :item %>
+  <%= f.text_field :item %>
+
+  <%= f.submit %>
+<% end %>
+
+<%= form_for [@recipe, @ingredient], method: :delete do |f| %>
+  <%= f.submit "Delete!", class: "delete" %>
+<% end %>
