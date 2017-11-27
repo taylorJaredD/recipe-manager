@@ -1,0 +1,11 @@
+<h2>Recipes <a href="/recipes/new">(+)</a></h2>
+
+<ul>
+  <% @recipes.each do |recipe| %>
+    <li>
+      <a href="/recipes/<%= recipe.id %>">
+        <%= recipe.title %>
+      </a>
+    </li>
+  <% end %>
+</ul>

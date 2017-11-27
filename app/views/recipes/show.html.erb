@@ -1,0 +1,11 @@
+<h2><%= @recipe.title %> <a href="/recipes/<%= @recipe.id %>/edit">(edit)</a></h2>
+
+<img class='img' src="<%= @recipe.img_url %>">
+
+<article>
+  <p><%= @recipe.description %></p>
+  <p><%= @recipe.directions %></p>
+  <p><%= @recipe.bake_time %></p>
+  <p><%= @recipe.baking_method %></p>
+  <p><%= @recipe.serving_size %></p>
+</article>

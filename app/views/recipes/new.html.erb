@@ -1,6 +1,6 @@
 <h2>Create a new recipe page</h2>
 
-<%= form_for [@recipe, @ingredient] do |f| %>
+<%= form_for [@recipe] do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title, placeholder: "Brownies" %>
 
@@ -17,13 +17,11 @@
   <%= f.text_field :bake_time, placeholder: "30-35 minutes" %>
 
   <%= f.label :baking_method %>
-  <%= f.text_field :baking_method, placeholder: "9x9 square pan at 350"@deg %>
+  <%= f.text_field :baking_method, placeholder: "9x9 square pan at 350" %>
 
   <%= f.label :serving_size %>
   <%= f.text_field :serving_size, placeholder: "3-4, preferably more than one" %>
 
-  <%= f.label @ingredient %>
-  <%= f.collection_select :ingredient, Ingredient.all, :item %>
 
   <%= f.submit %>
 <% end %>
