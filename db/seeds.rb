@@ -12,11 +12,11 @@ User.destroy_all
 
 # test_user = User.create(email: "test1@test.com", password: "password")
 
-recipes = Recipes.create([
+recipes = Recipe.create([
   {title: "Devil's Food Cake", img_url: "", description: "Delicious chocolatey cake", directions: "melt chocolate. beat eggs", bake_time: "30-35 minutes", baking_method: "9x9 square pan at 350 degrees", serving_size: "preferably more than one", user_id: 1}
   ])
 
-ingredients = Ingredients.create([
+ingredients = Ingredient.create([
   {amount: "1 1/2", measurement: "cups", item: "flour", recipe_id: 1},
   {amount: "3", measurement: "", item: "eggs", recipe_id: 1},
   {amount: "1", measurement: "lbs", item: "chocolate", recipe_id: 1}

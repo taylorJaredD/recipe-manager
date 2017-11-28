@@ -5,12 +5,13 @@ class IngredientsController < ApplicationController
   end
 
   def new
+    @recipe = Recipe.find(params[:recipe_id])
     @ingredient = Ingredient.new
   end
 
   def create
     @recipe = Recipe.find(params[:recipe_id])
-    @ingredient = @recipe.ingredient.create(ingredients_params.merge(user: current_user))
+    @ingredient = @recipe.ingredients.create(ingredient_params)
     redirect_to recipe_path(@recipe)
   end
 
@@ -21,25 +22,30 @@ class IngredientsController < ApplicationController
   def edit
     @recipe = Recipe.find(params[:recipe_id])
     @ingredient = Ingredient.find(params[:id])
-    if @ingredient.user != current.user
-      flash[:alert] = "Only the author of this recipe can edit it."
-      redirect_to recipe_path(@recipe)
-    end
+    # if @ingredient.user != current.user
+    #   flash[:alert] = "Only the author of this recipe can edit it."
+    #   redirect_to recipe_path(@recipe)
+    # end
+    redirect_to recipe_path(@recipe)
   end
 
   def update
     @recipe = Recipe.find(params[:recipe_id])
     @ingredient = Ingredient.find(params[:id])
-    if @ingredient.user == current.user
-      @ingredient.update(ingredient_params)
-    else
-      flash[:alert] = "Only the author of this recipe can edit it."
-    end
+    # if @ingredient.user == current.user
+    #   @ingredient.update(ingredient_params)
+    # else
+    #   flash[:alert] = "Only the author of this recipe can edit it."
+    # end
+    @ingredient.update(ingredient_params)
     redirect_to recipe_path(@recipe)
   end
 
   def destroy
-
+    @recipe = Recipe.find(params[:recipe_id])
+    @ingredient = Ingredient.find(params[:id])
+    @ingredient.destroy
+    redirect_to recipe_path(@ingredient.recipe)
   end
 
   private
