@@ -26,7 +26,6 @@ class IngredientsController < ApplicationController
     #   flash[:alert] = "Only the author of this recipe can edit it."
     #   redirect_to recipe_path(@recipe)
     # end
-    redirect_to recipe_path(@recipe)
   end
 
   def update
