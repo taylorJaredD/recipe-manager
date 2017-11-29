@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RecipeManager</title>
+    <title>Home Baked Recipes</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,17 +9,40 @@
   </head>
 
   <body>
-    <h1>Recipe Manager</h1>
+
+    <h1 class='home-logo'></h1>
+    <h1>Home Baked Recipes</h1>
     <nav>
-      <% if !current_user %>
-        <p><%= link_to "Sign up", new_user_registration_path %></p>
-        <p><%= link_to "Log in", new_user_session_path %></p>
-      <% else %>
-        <p><%= current_user.email %></p>
-        <p><%= link_to "Log out", destroy_user_session_path, :method => :delete %></p>
-      <% end %>
-      <a href="/recipes">Recipes</a>
+      <div class="header-data">
+        <% if !current_user %>
+          <h5><%= link_to "Sign up", new_user_registration_path %></h5>
+          <h5><%= link_to "Log in", new_user_session_path %></h5>
+        <% else %>
+          <h5><%= current_user.email %></h5>
+          <h5><%= link_to "Log out", destroy_user_session_path, :method => :delete %></h5>
+        <% end %>
+        <a href="/recipes">Recipes</a>
+      </div>
     </nav>
+
+    <!-- <section>
+      <div>
+        <div class="image-container">
+          <div class="container">
+            <h2><%= @recipe.title %> <a href="/recipes/<%= @recipe.id %>"</a></h2>
+          </div>
+          <div class="container">
+            <img src="img/new-york.jpg" alt="New York">
+            <div class="center">New York</div>
+          </div>
+          <div class="container">
+            <img src="img/london.jpg" alt="London">
+            <div class="center">London</div>
+          </div>
+        </div>
+
+      </div>
+    </section> -->
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
