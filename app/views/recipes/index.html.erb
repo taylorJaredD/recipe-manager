@@ -1,6 +1,6 @@
 <h2>Recipes <a href="/recipes/new">(+)</a></h2>
 
-<ul>
+<!-- <ul>
   <% @recipes.each do |recipe| %>
     <li>
       <a href="/recipes/<%= recipe.id %>">
@@ -8,4 +8,14 @@
       </a>
     </li>
   <% end %>
-</ul>
+</ul> -->
+<div class="recipe-box">
+<% @recipes.each do |recipe| %>
+
+  <div class="recipe">
+    <h2><%= link_to recipe.title, recipe_path(recipe) %></h2>
+    <img class="img" src="<%= recipe.img_url %>">
+  </div>
+<% end %>
+
+</div>

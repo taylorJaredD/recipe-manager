@@ -17,6 +17,7 @@
    background-color: #fa8e3c;
    background-image: url(https://www.transparenttextures.com/patterns/food.png);
    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+   margin: 10px;
  }
 
 .home-logo {
@@ -41,18 +42,29 @@ h5 {
 }
 
 .img {
-  width: 400px;
+  width: 300px;
+  height: 250px;
+  margin: 10px;
 }
 
 .container {
   position: relative;
   text-align: center;
+  width: 400px;
 }
 
 .image-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+
+.recipe-box {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  text-align:center;
 }
 
 a.fav {
@@ -67,4 +79,20 @@ a.no-fav {
 
 .fav:visited, .no-fav:visited {
   text-decoration: none;
+}
+
+.prep {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 400px;
+  background-color: white;
+  padding: 10px;
+}
+.ingredients-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 400px;
+  background-color: white;
 }

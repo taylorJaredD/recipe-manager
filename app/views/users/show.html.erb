@@ -1,0 +1,7 @@
+<h1><%= current_user.email %></h1>
+<h2><%= @recipe.title %> <a href="/recipes/<%= @recipe.id %>/edit">(edit)</a></h2>
+<% @recipe.each do |list| %>
+  <div class="list">
+    <h2><%= list %></h2>
+  </div>
+<% end %>

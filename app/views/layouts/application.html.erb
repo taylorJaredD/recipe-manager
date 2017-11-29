@@ -23,26 +23,9 @@
         <% end %>
         <a href="/recipes">Recipes</a>
       </div>
+      <h2><%= link_to "User profile", show_session_path %> | <%= link_to "Recipes", recipes_path %></h2>
     </nav>
 
-    <!-- <section>
-      <div>
-        <div class="image-container">
-          <div class="container">
-            <h2><%= @recipe.title %> <a href="/recipes/<%= @recipe.id %>"</a></h2>
-          </div>
-          <div class="container">
-            <img src="img/new-york.jpg" alt="New York">
-            <div class="center">New York</div>
-          </div>
-          <div class="container">
-            <img src="img/london.jpg" alt="London">
-            <div class="center">London</div>
-          </div>
-        </div>
-
-      </div>
-    </section> -->
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
