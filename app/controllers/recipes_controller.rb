@@ -24,7 +24,12 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.create(recipe_params.merge(user: current_user))
-    redirect_to recipe_path(@recipe)
+    if @recipe.save
+      flash[:notice] = "Recipe was successfully created."
+      redirect_to @recipe
+    else
+      render :new
+    end
   end
 
   def update
@@ -47,6 +52,19 @@ class RecipesController < ApplicationController
     # end
     @recipe.destroy
     redirect_to recipes_path
+  end
+
+  def add_favorite
+    @recipe = Recipe.find(params[:id])
+    @recipe.favorites.create(user: current_user)
+    redirect_to :back
+  end
+
+  def remove_favorite
+    @recipe = Recipe.find(params[:id])
+    @favorite = Favorite.find_by(recipe: @recipe, user: current_user)
+    @favorite.destroy
+    redirects_to :back
   end
 
   private

@@ -1,6 +1,18 @@
 <h2><%= @recipe.title %> <a href="/recipes/<%= @recipe.id %>/edit">(edit)</a></h2>
 
 
+<ul>
+    <li>
+      <% if current_user %>
+        <% if @recipe.users.include? current_user %>
+          <%= link_to "&#9733;".html_safe, remove_favorite_recipe_path(recipe), method: :delete, class: "fav" %>
+        <% else %>
+          <%= link_to "&#9733;".html_safe, add_favorite_recipe_path(recipe), method: :post, class: "no-fav" %>
+        <% end %>
+      <% end %>
+    </li>
+</ul>
+
 <article>
 
   <img class='img' src="<%= @recipe.img_url %>">
