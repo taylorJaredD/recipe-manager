@@ -21,7 +21,7 @@
           <h5><%= current_user.email %></h5>
           <h5><%= link_to "Log out", destroy_user_session_path, :method => :delete %></h5>
         <% end %>
-        <a href="/recipes">Recipes</a>
+        <!-- <a href="/recipes">Recipes</a> -->
       </div>
       <h2><%= link_to "User profile", show_session_path %> | <%= link_to "Recipes", recipes_path %></h2>
     </nav>

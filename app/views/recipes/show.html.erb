@@ -1,6 +1,5 @@
 <h2><%= @recipe.title %> <a href="/recipes/<%= @recipe.id %>/edit">(edit)</a></h2>
 
-
 <ul>
     <li>
       <% if current_user %>
@@ -12,31 +11,30 @@
       <% end %>
     </li>
 </ul>
+<div class="recipe-card">
+  <div class="prep">
 
-<div class="prep">
-
-  <img class='img' src="<%= @recipe.img_url %>">
-  <p>Description: <%= @recipe.description %></p>
-  <p>Directions: <%= @recipe.directions %></p>
-  <p>Bake time: <%= @recipe.bake_time %></p>
-  <p>Baking method: <%= @recipe.baking_method %></p>
-  <p>Serving size: <%= @recipe.serving_size %></p>
-</div>
+    <img class='img' src="<%= @recipe.img_url %>">
+    <p>Description: <%= @recipe.description %></p>
+    <p>Directions: <%= @recipe.directions %></p>
+    <p>Bake time: <%= @recipe.bake_time %></p>
+    <p>Baking method: <%= @recipe.baking_method %></p>
+    <p>Serving size: <%= @recipe.serving_size %></p>
+  </div>
 
 
-<div class="ingredients">
-    <h3>Ingredients</h3>
-    <!-- <h2><a href="/ingredients/<%= @ingredient %>/edit">(edit)</a></h2> -->
-    <%= link_to "Add new ingredients", new_recipe_ingredient_path(@recipe) %>
+  <div class="ingredients">
+      <h2>Ingredients | <%= link_to "Add new ingredients", new_recipe_ingredient_path(@recipe) %></h2>
 
-    <% @recipe.ingredients.each do |ingredient| %>
-      <%= link_to "Edit", edit_recipe_ingredient_path(@recipe, ingredient) %> |
-          <%= link_to "Delete", recipe_ingredient_path(@recipe, ingredient), method: :delete %>
-      <div class="ingredients-list">
-        <p><%= ingredient.amount%></p>
-        <p><%= ingredient.measurement%></p>
-        <p><%= ingredient.item %></p>
+      <% @recipe.ingredients.each do |ingredient| %>
+        <%= link_to "Edit", edit_recipe_ingredient_path(@recipe, ingredient) %> |
+            <%= link_to "Delete", recipe_ingredient_path(@recipe, ingredient), method: :delete %>
+        <div class="ingredients-list">
+          <p><%= ingredient.amount%></p>
+          <p><%= ingredient.measurement%></p>
+          <p><%= ingredient.item %></p>
 
-      </div>
-    <% end %>
+        </div>
+      <% end %>
+  </div>
 </div>
