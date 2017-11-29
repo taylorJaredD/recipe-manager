@@ -57,14 +57,14 @@ class RecipesController < ApplicationController
   def add_favorite
     @recipe = Recipe.find(params[:id])
     @recipe.favorites.create(user: current_user)
-    redirect_to :back
+    redirect_back(fallback_location: root_path)
   end
 
   def remove_favorite
     @recipe = Recipe.find(params[:id])
     @favorite = Favorite.find_by(recipe: @recipe, user: current_user)
     @favorite.destroy
-    redirects_to :back
+    redirect_back(fallback_location: root_path)
   end
 
   private
