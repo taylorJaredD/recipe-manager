@@ -1,4 +1,7 @@
-<h2><%= @recipe.title %> <a href="/recipes/<%= @recipe.id %>/edit">(edit)</a></h2>
+<h2><%= @recipe.title %> </h2>
+<% if @recipe.user == current_user %>
+  <a href="/recipes/<%= @recipe.id %>/edit">(edit)</a>
+<% end %>
 
 <ul>
     <li>
@@ -24,7 +27,11 @@
 
 
   <div class="ingredients">
-      <h2>Ingredients | <%= link_to "Add new ingredients", new_recipe_ingredient_path(@recipe) %></h2>
+      <h2>Ingredients
+        <% if @recipe.user == current_user %>
+          | <%= link_to "Add new ingredients", new_recipe_ingredient_path(@recipe) %>
+        <% end %>
+      </h2>
 
       <% @recipe.ingredients.each do |ingredient| %>
         <%= link_to "Edit", edit_recipe_ingredient_path(@recipe, ingredient) %> |

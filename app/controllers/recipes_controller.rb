@@ -12,7 +12,7 @@ class RecipesController < ApplicationController
 
   def edit
     @recipe = Recipe.find(params[:id])
-    if @recipe.user != current.user
+    if @recipe.user != current_user
       flash[:alert] = "Only the author of this recipe can edit it."
       redirect_to recipe_path(@recipe)
     end
@@ -34,7 +34,7 @@ class RecipesController < ApplicationController
 
   def update
     @recipe = Recipe.find(params[:id])
-    if @recipe.user == current.user
+    if @recipe.user == current_user
       @recipe.update(recipe_params)
     else
       flash[:alert] = "Only the author of this recipe can edit it."
@@ -45,7 +45,7 @@ class RecipesController < ApplicationController
 
   def destroy
     @recipe = Recipe.find(params[:id])
-    if @recipe.user == current.user
+    if @recipe.user == current_user
       @recipe.destroy
     else
       flash[:alert] = "Only the author of this recipe can delete it."
