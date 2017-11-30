@@ -34,8 +34,11 @@
       </h2>
 
       <% @recipe.ingredients.each do |ingredient| %>
-        <%= link_to "Edit", edit_recipe_ingredient_path(@recipe, ingredient) %> |
+        <% if @recipe.user == current_user %>
+          <%= link_to "Edit", edit_recipe_ingredient_path(@recipe, ingredient) %> |
             <%= link_to "Delete", recipe_ingredient_path(@recipe, ingredient), method: :delete %>
+        <% end %>
+
         <div class="ingredients-list">
           <p><%= ingredient.amount%></p>
           <p><%= ingredient.measurement%></p>

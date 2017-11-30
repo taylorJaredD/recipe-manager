@@ -18,16 +18,19 @@ test_user_recipes = Recipe.create([
 ])
 
 grammy_recipes = Recipe.create([
-  {title: "Banana Nut Bread", img_url: "http://www.thespiffycookie.com/wp-content/uploads/2014/02/Mini-Caramelized-Banana-Nut-Bread-1024x682.jpg", description: "", directions: "", bake_time: "", baking_method: "", serving_size: "", user_id: grammy.id},
-  {title: "Chocolate Chip Cookies", img_url: "https://static01.nyt.com/images/2014/03/11/dining/chocolatecookie-still/chocolatecookie-still-articleLarge.jpg", description: "", directions: "", bake_time: "12 minutes", baking_method: "baking sheet", serving_size: "8", user_id: grammy.id},
+  {title: "Banana Nut Bread", img_url: "http://www.thespiffycookie.com/wp-content/uploads/2014/02/Mini-Caramelized-Banana-Nut-Bread-1024x682.jpg", description: "Warm and fluffy. Delicious when served with marmalade", directions: "", bake_time: "20 minutes", baking_method: "bread pan at 325", serving_size: "5", user_id: grammy.id},
+  {title: "Chocolate Chip Cookies", img_url: "https://static01.nyt.com/images/2014/03/11/dining/chocolatecookie-still/chocolatecookie-still-articleLarge.jpg", description: "soft and gooey", directions: "", bake_time: "12 minutes", baking_method: "baking sheet", serving_size: "8", user_id: grammy.id},
   {title: "Strawberry Pie", img_url: "https://www.immaculatebaking.com/wp-content/uploads/hero-strawpie.jpg", description: "", directions: "", bake_time: "15-17 minutes", baking_method: "round, glass baking dish", serving_size: "6", user_id: grammy.id},
   {title: "Brownies", img_url: "http://res.cloudinary.com/hksqkdlah/image/upload/w_1200,h_630,c_fill/Vegan%20Microsite/SFS_Fudgy_Brownies-11", description: "moist and chewy", directions: "", bake_time: "18 minutes", baking_method: "9x9 square pan", serving_size: "7", user_id: grammy.id},
 
 ])
 
 ingredients = Ingredient.create([
-  {amount: "1 1/2", measurement: "cups", item: "flour", recipe_id: 1},
-  {amount: "3", measurement: "", item: "eggs", recipe_id: 1},
-  {amount: "1", measurement: "lbs", item: "chocolate", recipe_id: 1},
-
+  {amount: "1 1/2", measurement: "cups", item: "flour", recipe: test_user_recipes[0]},
+  {amount: "3", measurement: "", item: "eggs", recipe: test_user_recipes[0]},
+  {amount: "1", measurement: "lbs", item: "chocolate", recipe: test_user_recipes[0]},
+  {amount: "3", measurement: "", item: "ripe bananas", recipe: grammy_recipes[0]},
+  {amount: "1", measurement: "cup", item: "crushed walnuts", recipe: grammy_recipes[0]},
+  {amount: "a pinch", measurement: "", item: "salt", recipe: grammy_recipes[0]},
+  {amount: "a dash", measurement: "", item: "honey", recipe: grammy_recipes[0]}
   ])
