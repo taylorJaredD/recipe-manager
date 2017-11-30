@@ -10,7 +10,7 @@ used to add functionality and style to the app.
 _Unresolved Issues_: The CSS could look better and there are a couple of elements that could
 be hidden until the user has logged in.
 
-_Hosted Project URL_: (https://home-baked-recipes.herokuapp.com/ | https://git.heroku.com/home-baked-recipes.git)
+_Hosted Project URL_: (https://home-baked-recipes.herokuapp.com/)
 
 _Ongoing Plans_:  I plan on fixing the unresolved issues and adding a user profile section
 where users can add a bio and view all of their recipes and favorited ones.  If the app gets
